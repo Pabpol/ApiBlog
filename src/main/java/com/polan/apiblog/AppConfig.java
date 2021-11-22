@@ -13,7 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 @ComponentScan("com.polan.apiblog")
-@PropertySource("classPath:database.properties")
+@PropertySource("classpath:database.properties")
 public class AppConfig {
     
     @Autowired

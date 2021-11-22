@@ -9,9 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","FieldHandler"})
 @Data
 public class Post {
 
@@ -25,8 +29,9 @@ public class Post {
     private Date publicationDate;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "user_id")
-    private User user;
+    private AppUser appUser;
 
     
 }
